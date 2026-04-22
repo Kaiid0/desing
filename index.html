@@ -15,92 +15,82 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 16px;
+      padding: 40px 16px 60px;
     }
 
-    h1 {
+    .page-title {
       font-size: 22px;
       font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 32px;
-      letter-spacing: 0.3px;
+      color: #0a1e30;
+      margin-bottom: 4px;
+    }
+    .page-sub {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 36px;
     }
 
-    .container {
+    .page-layout {
       display: flex;
-      gap: 40px;
+      gap: 36px;
       width: 100%;
-      max-width: 1100px;
+      max-width: 1300px;
       align-items: flex-start;
       flex-wrap: wrap;
     }
 
-    /* ── FORM ── */
+    /* ══════════════ FORM ══════════════ */
     .form-panel {
       background: #fff;
-      border-radius: 12px;
-      padding: 32px;
-      flex: 1 1 340px;
-      box-shadow: 0 2px 16px rgba(0,0,0,.08);
+      border-radius: 14px;
+      padding: 28px 28px 32px;
+      flex: 0 0 310px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.07);
     }
-
     .form-panel h2 {
-      font-size: 15px;
-      font-weight: 600;
-      color: #555;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #bbb;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-bottom: 24px;
+      letter-spacing: 1.4px;
+      margin-bottom: 22px;
     }
-
-    label {
+    .field { margin-bottom: 16px; }
+    .field label {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: #444;
       margin-bottom: 6px;
     }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select {
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"] {
       width: 100%;
-      padding: 10px 14px;
-      border: 1.5px solid #e0e0e0;
+      padding: 10px 12px;
+      border: 1.5px solid #e2e8f0;
       border-radius: 8px;
-      font-size: 14px;
-      color: #333;
+      font-size: 13.5px;
+      color: #1a1a2e;
       outline: none;
+      background: #fafbfc;
       transition: border-color .2s;
-      margin-bottom: 18px;
-      background: #fafafa;
     }
+    .field input:focus { border-color: #1ab0f5; background: #fff; }
+    .field .hint { font-size: 10.5px; color: #c0c8d0; margin-top: 5px; line-height: 1.4; }
 
-    input:focus, select:focus {
-      border-color: #4361ee;
-      background: #fff;
-    }
-
-    .photo-upload-area {
-      width: 100%;
-      border: 2px dashed #c8d0e7;
-      border-radius: 8px;
-      padding: 20px;
+    .upload-area {
+      border: 2px dashed #d8e3ee;
+      border-radius: 10px;
+      padding: 16px 12px;
       text-align: center;
       cursor: pointer;
-      transition: border-color .2s, background .2s;
-      margin-bottom: 18px;
-      background: #fafafa;
+      background: #fafbfc;
       position: relative;
+      transition: all .2s;
     }
-
-    .photo-upload-area:hover {
-      border-color: #4361ee;
-      background: #f0f3ff;
-    }
-
-    .photo-upload-area input[type="file"] {
+    .upload-area:hover { border-color: #1ab0f5; background: #f0faff; }
+    .upload-area input[type="file"] {
       position: absolute;
       inset: 0;
       opacity: 0;
@@ -108,223 +98,29 @@
       width: 100%;
       height: 100%;
     }
-
-    .photo-upload-area .upload-icon {
-      font-size: 28px;
-      margin-bottom: 6px;
-      display: block;
-    }
-
-    .photo-upload-area p {
-      font-size: 13px;
-      color: #888;
-    }
-
-    .photo-upload-area p strong {
-      color: #4361ee;
-    }
-
-    #photo-preview-thumb {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
+    .upload-area .thumb {
+      width: 58px;
+      height: 64px;
       object-fit: cover;
+      border-radius: 5px;
       display: none;
       margin: 0 auto 8px;
-      border: 3px solid #4361ee;
     }
+    .upload-area .icon { font-size: 24px; display: block; margin-bottom: 6px; }
+    .upload-area p { font-size: 11.5px; color: #aaa; line-height: 1.5; }
+    .upload-area p strong { color: #1ab0f5; }
 
-    .field-group {
-      margin-bottom: 0;
-    }
-
-    #telefone-pessoal-group {
+    #phone-personal-field {
       display: none;
+      border-top: 1px solid #f0f4f8;
+      padding-top: 16px;
+      margin-top: 2px;
     }
 
-    .hint {
-      font-size: 11.5px;
-      color: #999;
-      margin-top: -14px;
-      margin-bottom: 18px;
-    }
-
-    .btn-generate {
+    .btn-gen {
       width: 100%;
-      padding: 13px;
-      background: #4361ee;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s;
-      margin-top: 6px;
-    }
-
-    .btn-generate:hover { background: #3451d1; }
-
-    /* ── PREVIEW PANEL ── */
-    .preview-panel {
-      flex: 1 1 520px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .preview-panel h2 {
-      font-size: 15px;
-      font-weight: 600;
-      color: #555;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .preview-wrapper {
-      background: #fff;
-      border-radius: 12px;
-      padding: 32px;
-      box-shadow: 0 2px 16px rgba(0,0,0,.08);
-      overflow: hidden;
-    }
-
-    /* ── SIGNATURE TEMPLATE ── */
-    #signature {
-      width: 560px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      background: #fff;
-    }
-
-    .sig-inner {
-      display: flex;
-      gap: 0;
-      align-items: stretch;
-    }
-
-    .sig-photo-col {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-right: 20px;
-      flex-shrink: 0;
-    }
-
-    .sig-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      background: #e8eaf0;
-    }
-
-    .sig-photo-placeholder {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: #e8eaf0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      color: #bbb;
-      flex-shrink: 0;
-    }
-
-    .sig-divider-v {
-      width: 3px;
-      background: #4361ee;
-      border-radius: 2px;
-      align-self: stretch;
-      margin-right: 20px;
-      flex-shrink: 0;
-    }
-
-    .sig-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2px;
-    }
-
-    .sig-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 1px;
-    }
-
-    .sig-role {
-      font-size: 12px;
-      font-weight: 600;
-      color: #4361ee;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      margin-bottom: 8px;
-    }
-
-    .sig-contacts {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .sig-contact-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: #444;
-    }
-
-    .sig-contact-row .icon {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-    }
-
-    .sig-contact-row a {
-      color: #444;
-      text-decoration: none;
-    }
-
-    .sig-footer {
-      margin-top: 14px;
-      padding-top: 10px;
-      border-top: 1.5px solid #e8eaf0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .sig-company-name {
-      font-size: 18px;
-      font-weight: 900;
-      color: #1a1a2e;
-      letter-spacing: -0.5px;
-    }
-
-    .sig-company-name span {
-      color: #4361ee;
-    }
-
-    .sig-website {
-      font-size: 11px;
-      color: #888;
-    }
-
-    .sig-website a {
-      color: #4361ee;
-      text-decoration: none;
-    }
-
-    /* ── DOWNLOAD BTN ── */
-    .btn-download {
-      padding: 12px 28px;
-      background: #1a1a2e;
+      padding: 12px;
+      background: #1ab0f5;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -332,123 +128,402 @@
       font-weight: 700;
       cursor: pointer;
       transition: background .2s;
-      align-self: flex-start;
+      margin-top: 6px;
+    }
+    .btn-gen:hover { background: #0d9de0; }
+
+    /* ══════════════ PREVIEW ══════════════ */
+    .preview-panel {
+      flex: 1 1 600px;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .preview-panel h2 {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #bbb;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
     }
 
-    .btn-download:hover { background: #4361ee; }
-    .btn-download:disabled { background: #ccc; cursor: default; }
+    .preview-box {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0,0,0,.22);
+      /* height set dynamically */
+    }
 
-    .notice {
+    /* the 900px scaler — transformed for preview */
+    #sig-scaler {
+      width: 900px;
+      transform-origin: top left;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-dl {
+      padding: 11px 22px;
+      background: #0a1e30;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-dl:hover { background: #1ab0f5; }
+    .btn-dl:disabled { background: #ccc; cursor: not-allowed; }
+    .note { font-size: 11px; color: #bbb; }
+
+    /* ══════════════ ASSINATURA ══════════════ */
+    #signature {
+      width: 900px;
+      height: 236px;
+      position: relative;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(108deg, #17344f 0%, #0d2139 22%, #071627 52%, #040e1c 100%);
+    }
+
+    /* Radial glow */
+    .sig-glow {
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+      width: 560px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(26,176,245,0.09) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Decorative cyan squares */
+    .deco {
+      position: absolute;
+      background: #1ab0f5;
+      z-index: 3;
+    }
+    /* top-left of photo area */
+    .deco-tl { width: 24px; height: 24px; top: 20px; left: 52px; }
+    /* bottom-right of photo area */
+    .deco-br { width: 17px; height: 17px; bottom: 22px; left: 176px; }
+
+    /* Photo column */
+    .sig-photo-col {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 216px;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .sig-photo-col img {
+      width: 162px;
+      height: 204px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .sig-no-photo {
+      width: 162px;
+      height: 204px;
+      background: #1b3a55;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4a7a9b;
+      font-size: 52px;
+    }
+
+    /* Content column */
+    .sig-content {
+      position: absolute;
+      left: 220px;
+      top: 0;
+      right: 0;
+      height: 100%;
+      padding: 0 22px 0 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Logo top-right */
+    .sig-logo {
+      position: absolute;
+      top: 16px;
+      right: 22px;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      gap: 0;
+    }
+    .logo-gem {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      background: #1ab0f5;
+      transform: rotate(45deg);
+      margin: 0 2px;
+      flex-shrink: 0;
+    }
+    .logo-gem span {
+      transform: rotate(-45deg);
       font-size: 12px;
-      color: #aaa;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: block;
     }
+
+    /* Name */
+    .sig-name {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 29px;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      line-height: 1;
+      margin-top: 26px;
+      margin-bottom: 9px;
+    }
+
+    /* Cargo badge */
+    .sig-badge {
+      display: inline-block;
+      background: #1ab0f5;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      padding: 4px 10px 3px;
+      margin-bottom: 12px;
+    }
+
+    /* Divider */
+    .sig-rule {
+      height: 1.5px;
+      background: linear-gradient(to right, #1ab0f5 0%, rgba(26,176,245,0.3) 65%, transparent 100%);
+      margin-bottom: 12px;
+    }
+
+    /* Contacts */
+    .sig-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .sig-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .sig-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #c0d2e2;
+      font-size: 11.5px;
+      white-space: nowrap;
+    }
+    .sig-item svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+    .sig-item a { color: #c0d2e2; text-decoration: none; }
   </style>
 </head>
 <body>
 
-<h1>Gerador de Assinaturas — MADE4IT</h1>
+<p class="page-title">Gerador de Assinaturas</p>
+<p class="page-sub">MADE4IT — Preencha os dados e exporte como PNG</p>
 
-<div class="container">
+<div class="page-layout">
 
   <!-- FORM -->
   <div class="form-panel">
-    <h2>Dados do Funcionário</h2>
+    <h2>Dados do funcionário</h2>
 
-    <label>Foto do Funcionário</label>
-    <div class="photo-upload-area" id="upload-area">
-      <input type="file" id="foto-input" accept="image/*" />
-      <img id="photo-preview-thumb" src="" alt="Preview" />
-      <span class="upload-icon" id="upload-icon">📷</span>
-      <p id="upload-text"><strong>Clique para selecionar</strong> ou arraste a foto aqui<br/>JPG, PNG – recomendado 200×200px</p>
+    <div class="field">
+      <label>Foto</label>
+      <div class="upload-area" id="upload-area">
+        <input type="file" id="foto-input" accept="image/*" />
+        <img class="thumb" id="upload-thumb" src="" alt="" />
+        <span class="icon" id="upload-icon">📷</span>
+        <p id="upload-text"><strong>Clique para selecionar</strong><br/>JPG ou PNG · recomendado 400×500 px</p>
+      </div>
     </div>
 
-    <label for="nome">Nome completo</label>
-    <input type="text" id="nome" placeholder="Ex: João Silva" />
-
-    <label for="cargo">Cargo</label>
-    <input type="text" id="cargo" placeholder="Ex: Analista de Sistemas" />
-    <p class="hint">Para cargos de gerência/diretoria será solicitado um segundo telefone.</p>
-
-    <label for="email">E-mail corporativo</label>
-    <input type="email" id="email" placeholder="Ex: joao.silva@made4it.com.br" />
-
-    <div id="telefone-pessoal-group" class="field-group">
-      <label for="telefone-pessoal">Telefone pessoal / ramal</label>
-      <input type="tel" id="telefone-pessoal" placeholder="Ex: +55 (43) 99999-9999" />
+    <div class="field">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" placeholder="Ex: João da Silva" />
     </div>
 
-    <button class="btn-generate" onclick="generateSignature()">Gerar Assinatura</button>
+    <div class="field">
+      <label for="cargo">Cargo</label>
+      <input type="text" id="cargo" placeholder="Ex: Analista de Sistemas" />
+      <p class="hint">Cargos de gerência/diretoria habilitam um segundo telefone.</p>
+    </div>
+
+    <div class="field">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" placeholder="nome@made4it.com.br" />
+    </div>
+
+    <div id="phone-personal-field">
+      <div class="field">
+        <label for="phone-personal">Telefone pessoal</label>
+        <input type="tel" id="phone-personal" placeholder="+55 (43) 99999-9999" />
+      </div>
+    </div>
+
+    <button class="btn-gen" onclick="updateSignature()">Gerar assinatura</button>
   </div>
 
   <!-- PREVIEW -->
   <div class="preview-panel">
     <h2>Pré-visualização</h2>
 
-    <div class="preview-wrapper">
-      <div id="signature">
-        <div class="sig-inner">
+    <div class="preview-box" id="preview-box">
+      <div id="sig-scaler">
+
+        <!-- ══ ASSINATURA ══ -->
+        <div id="signature">
+          <div class="sig-glow"></div>
+
+          <!-- Decorative squares -->
+          <div class="deco deco-tl"></div>
+          <div class="deco deco-br"></div>
+
+          <!-- Photo -->
           <div class="sig-photo-col">
-            <div class="sig-photo-placeholder" id="sig-photo-placeholder">👤</div>
-            <img class="sig-photo" id="sig-photo" src="" alt="" style="display:none" />
+            <div class="sig-no-photo" id="sig-no-photo">👤</div>
+            <img id="sig-photo" src="" alt="" style="display:none" />
           </div>
-          <div class="sig-divider-v"></div>
-          <div class="sig-info">
-            <div class="sig-name" id="sig-name">Nome do Funcionário</div>
-            <div class="sig-role" id="sig-role">Cargo</div>
-            <div class="sig-contacts">
-              <div class="sig-contact-row" id="sig-phone-main">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-                <span>+55 (43) 3047-8300</span>
-              </div>
-              <div class="sig-contact-row" id="sig-phone-personal" style="display:none">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                  <line x1="12" y1="18" x2="12.01" y2="18"/>
-                </svg>
-                <span id="sig-phone-personal-val"></span>
-              </div>
-              <div class="sig-contact-row" id="sig-email-row">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <a id="sig-email-val" href="#">email@made4it.com.br</a>
-              </div>
+
+          <!-- Content -->
+          <div class="sig-content">
+
+            <!-- Logo -->
+            <div class="sig-logo">
+              made<span class="logo-gem"><span>4</span></span>it
             </div>
-          </div>
-        </div>
 
-        <div class="sig-footer">
-          <div class="sig-company-name">MADE<span>4</span>IT</div>
-          <div class="sig-website">
-            <a href="#">www.made4it.com.br</a>
-          </div>
-        </div>
-      </div>
+            <div class="sig-name" id="sig-name">NOME DO FUNCIONÁRIO</div>
+            <div class="sig-badge" id="sig-badge">CARGO</div>
+            <div class="sig-rule"></div>
+
+            <div class="sig-contacts">
+
+              <!-- Row 1: phone fixo + site -->
+              <div class="sig-row">
+                <div class="sig-item">
+                  <svg viewBox="0 0 24 24" fill="#1ab0f5">
+                    <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.29 21 3 13.71 3 4.5c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.26.2 2.47.57 3.58.11.35.03.74-.24 1.02l-2.23 2.2z"/>
+                  </svg>
+                  <span>+55 (43) 3047-8300</span>
+                </div>
+                <div class="sig-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1ab0f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10A15.3 15.3 0 0 1 12 2z"/>
+                  </svg>
+                  <a href="https://www.made4it.com.br" target="_blank">www.made4it.com.br</a>
+                </div>
+              </div>
+
+              <!-- Row 2: celular pessoal (gerência) + e-mail -->
+              <div class="sig-row">
+                <div class="sig-item" id="sig-personal-item" style="display:none">
+                  <svg viewBox="0 0 24 24" fill="#1ab0f5">
+                    <path d="M17 2H7c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5 18c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm5-4H7V4h10v12z"/>
+                  </svg>
+                  <span id="sig-personal-val"></span>
+                </div>
+                <div class="sig-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1ab0f5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                  <a id="sig-email-val" href="#">email@made4it.com.br</a>
+                </div>
+              </div>
+
+              <!-- Row 3: endereço -->
+              <div class="sig-row">
+                <div class="sig-item">
+                  <svg viewBox="0 0 24 24" fill="#1ab0f5">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>Av. Curitiba, 800 - Apucarana/ Paraná - Brasil</span>
+                </div>
+              </div>
+
+            </div>
+          </div><!-- .sig-content -->
+        </div><!-- #signature -->
+
+      </div><!-- #sig-scaler -->
+    </div><!-- .preview-box -->
+
+    <div class="actions">
+      <button class="btn-dl" id="btn-dl" onclick="downloadPNG()">⬇ Salvar como PNG</button>
+      <p class="note">PNG exportado em 2× resolução (1800 × 472 px).</p>
     </div>
-
-    <button class="btn-download" id="btn-download" onclick="downloadPNG()">⬇ Salvar como PNG</button>
-    <p class="notice">A imagem será salva em alta resolução (2×).</p>
   </div>
 
-</div>
+</div><!-- .page-layout -->
 
 <script>
-  const IS_MANAGEMENT = /gerente|gerência|gerencia|gerencial|diretor|diretora|diretoria|coordenador|coordenadora|coordenação|coordenacao|supervisor|supervisora|superintendente|presidente|ceo|coo|cto|cfo/i;
+  const MANAGEMENT = /gerente|gerência|gerencia|gerencial|diretor|diretora|diretoria|coordenador|coordenadora|coordenação|coordenacao|supervisor|supervisora|superintendente|presidente|ceo|coo|cto|cfo|vp\b|vice.?presiden/i;
 
   let photoDataURL = null;
 
-  // Photo upload
-  const fotoInput = document.getElementById('foto-input');
-  fotoInput.addEventListener('change', function () {
+  /* ── Preview scaling ── */
+  function scalePreview() {
+    const panel = document.querySelector('.preview-panel');
+    const box   = document.getElementById('preview-box');
+    const scaler = document.getElementById('sig-scaler');
+
+    const available = panel.clientWidth || 700;
+    const scale = Math.min(1, available / 900);
+
+    scaler.style.transform = scale < 1 ? `scale(${scale})` : '';
+    box.style.height  = Math.ceil(236 * scale) + 'px';
+    box.style.overflow = 'hidden';
+  }
+
+  window.addEventListener('resize', scalePreview);
+  // Run after layout paint
+  requestAnimationFrame(scalePreview);
+
+  /* ── Photo upload ── */
+  document.getElementById('foto-input').addEventListener('change', function () {
     const file = this.files[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = function (e) {
+    reader.onload = e => {
       photoDataURL = e.target.result;
-      const thumb = document.getElementById('photo-preview-thumb');
+      const thumb = document.getElementById('upload-thumb');
       thumb.src = photoDataURL;
       thumb.style.display = 'block';
       document.getElementById('upload-icon').style.display = 'none';
@@ -457,73 +532,96 @@
     reader.readAsDataURL(file);
   });
 
-  // Show/hide personal phone based on cargo
+  /* ── Auto-show personal phone field ── */
   document.getElementById('cargo').addEventListener('input', function () {
-    const isManagement = IS_MANAGEMENT.test(this.value);
-    document.getElementById('telefone-pessoal-group').style.display = isManagement ? 'block' : 'none';
+    document.getElementById('phone-personal-field').style.display =
+      MANAGEMENT.test(this.value) ? 'block' : 'none';
   });
 
-  function generateSignature() {
-    const nome  = document.getElementById('nome').value.trim()  || 'Nome do Funcionário';
-    const cargo = document.getElementById('cargo').value.trim() || 'Cargo';
+  /* ── Update signature preview ── */
+  function updateSignature() {
+    const nome  = document.getElementById('nome').value.trim()  || 'NOME DO FUNCIONÁRIO';
+    const cargo = document.getElementById('cargo').value.trim() || 'CARGO';
     const email = document.getElementById('email').value.trim() || 'email@made4it.com.br';
-    const isManagement = IS_MANAGEMENT.test(cargo);
-    const telPessoal = document.getElementById('telefone-pessoal').value.trim();
+    const isManagement = MANAGEMENT.test(cargo);
+    const telPessoal   = document.getElementById('phone-personal').value.trim();
 
-    // Fill text fields
-    document.getElementById('sig-name').textContent  = nome;
-    document.getElementById('sig-role').textContent  = cargo;
+    document.getElementById('sig-name').textContent  = nome.toUpperCase();
+    document.getElementById('sig-badge').textContent = cargo.toUpperCase();
     document.getElementById('sig-email-val').textContent = email;
     document.getElementById('sig-email-val').href = 'mailto:' + email;
 
-    // Personal phone visibility
-    const personalRow = document.getElementById('sig-phone-personal');
+    const personalItem = document.getElementById('sig-personal-item');
     if (isManagement && telPessoal) {
-      document.getElementById('sig-phone-personal-val').textContent = telPessoal;
-      personalRow.style.display = 'flex';
+      document.getElementById('sig-personal-val').textContent = telPessoal;
+      personalItem.style.display = 'flex';
     } else {
-      personalRow.style.display = 'none';
+      personalItem.style.display = 'none';
     }
 
-    // Photo
-    const sigPhoto = document.getElementById('sig-photo');
-    const placeholder = document.getElementById('sig-photo-placeholder');
+    const sigPhoto  = document.getElementById('sig-photo');
+    const noPhoto   = document.getElementById('sig-no-photo');
     if (photoDataURL) {
       sigPhoto.src = photoDataURL;
       sigPhoto.style.display = 'block';
-      placeholder.style.display = 'none';
+      noPhoto.style.display  = 'none';
     } else {
       sigPhoto.style.display = 'none';
-      placeholder.style.display = 'flex';
+      noPhoto.style.display  = 'flex';
     }
   }
 
+  /* ── Export PNG ── */
   async function downloadPNG() {
-    const btn = document.getElementById('btn-download');
-    btn.disabled = true;
-    btn.textContent = 'Gerando...';
+    const btn    = document.getElementById('btn-dl');
+    const scaler = document.getElementById('sig-scaler');
+    const box    = document.getElementById('preview-box');
+    const node   = document.getElementById('signature');
 
-    const node = document.getElementById('signature');
+    btn.disabled    = true;
+    btn.textContent = 'Gerando…';
 
-    const canvas = await html2canvas(node, {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: '#ffffff',
-      logging: false,
-    });
+    // Remove scale transform so html2canvas captures at full 900×236px
+    const savedTransform = scaler.style.transform;
+    const savedHeight    = box.style.height;
+    scaler.style.transform = 'none';
+    box.style.height = '236px';
 
-    const link = document.createElement('a');
-    const nome = document.getElementById('nome').value.trim().replace(/\s+/g, '_') || 'assinatura';
-    link.download = 'assinatura_' + nome + '.png';
-    link.href = canvas.toDataURL('image/png');
-    link.click();
+    // Small delay for browser to repaint
+    await new Promise(r => setTimeout(r, 60));
 
-    btn.disabled = false;
+    try {
+      const canvas = await html2canvas(node, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null,
+        logging: false,
+        width: 900,
+        height: 236,
+      });
+
+      const link = document.createElement('a');
+      const nomeSafe = document.getElementById('nome').value.trim()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/\s+/g, '_') || 'assinatura';
+      link.download = `assinatura_${nomeSafe}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (err) {
+      alert('Erro ao gerar PNG:\n' + err.message);
+    }
+
+    // Restore preview scaling
+    scaler.style.transform = savedTransform;
+    box.style.height       = savedHeight;
+
+    btn.disabled    = false;
     btn.textContent = '⬇ Salvar como PNG';
   }
 
   // Initial render
-  generateSignature();
+  updateSignature();
 </script>
 </body>
 </html>
